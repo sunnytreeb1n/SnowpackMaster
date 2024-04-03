@@ -1,2 +1,5 @@
+streamlit==0.68.1
+pandas==0.25.3
+plotly.graph_objects==5.20.0
 
 
