@@ -6,7 +6,7 @@ from PIL import Image
 
 im = Image.open("logo.jpg")
 st.set_page_config(
-    page_title="Rio Grande Bureau",
+    page_title="Rio Grande Bureau, NMISC",
     page_icon=im,
     layout="wide",
 )
