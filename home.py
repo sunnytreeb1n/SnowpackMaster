@@ -306,5 +306,5 @@ with tab2:
 with tab3:
     st.write("Snowpack Mater aims to provide discrate and accesiable SWE data to local water managers. ")
     st.write("The delineation of reported basins include Updated subbasins include Rio Chama Basin, Upper Rio Grande Basin, Sangre Decristo Basin,  Jemez River Basin,  San Juan River Basin. ")
-    st.write("Upper Rio Grande Basin consists of Rio Grande Headwaters, Saguache, and Conejos basins of HUC 8 . \n Sangre Decristo Basin consists of San Luis, Alamosa-Trinchem, and Upper Rio Grande basins of HUC 8. \n San Juan River Basin consists of Animas, Piedra, and Upper San Juan basins of HUC 8.  ")
+    st.write("Upper Rio Grande Basin consists of Rio Grande Headwaters, Saguache, and Conejos basins of USGS HUC 8 . \n Sangre Decristo Basin consists of San Luis, Alamosa-Trinchem, and Upper Rio Grande basins of USGS HUC 8. \n San Juan River Basin consists of Animas, Piedra, and Upper San Juan basins of USGS HUC 8.  ")
     st.image("UplandBasins_SnowpackMaster.jpg")
