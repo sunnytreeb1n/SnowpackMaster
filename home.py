@@ -304,7 +304,7 @@ with tab2:
         st.plotly_chart(fig,use_container_width=True, height = 200)
 
 with tab3:
-    st.write("Snowpack Mater aims to provide discrate and accesiable SWE data to local water managers. ")
-    st.write("The delineation of reported basins include Updated subbasins include Rio Chama Basin, Upper Rio Grande Basin, Sangre Decristo Basin,  Jemez River Basin,  San Juan River Basin. ")
-    st.write("Upper Rio Grande Basin consists of Rio Grande Headwaters, Saguache, and Conejos basins of USGS HUC 8 . \n Sangre Decristo Basin consists of San Luis, Alamosa-Trinchem, and Upper Rio Grande basins of USGS HUC 8. \n San Juan River Basin consists of Animas, Piedra, and Upper San Juan basins of USGS HUC 8.  ")
+    st.write("Snowpack Mater intends to provide local water management with discrete and accessible SWE data. ")
+    st.write("Updated subbasins include the Rio Chama Basin, Upper Rio Grande Basin, Sangre Decristo Basin, Jemez River Basin, and San Juan River Basin.")
+    st.write("The delineation of basins is not always consistent with USGS HUC8. The Upper Rio Grande Basin includes the Rio Grande Headwaters, Saguache, and Conejos basins. The Sangre Decristo Basin includes the San Luis, Alamosa-Trinchem, and Upper Rio Grande basins. The San Juan River Basin includes the Animas, Piedra, and Upper San Juan basins.  ")
     st.image("UplandBasins_SnowpackMaster.jpg")
