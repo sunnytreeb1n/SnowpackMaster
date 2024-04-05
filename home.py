@@ -17,7 +17,7 @@ st.title("Snowpack Master")
 
 #st.image("basins.jpg", caption="Location of Basins", width=700, use_column_width=None, clamp=False, channels="RGB", output_format="auto")
  
-tab1, tab2 = st.tabs(["2024 SWE ", "Historical SWE (2007-2023)"])
+tab1, tab2 , tab3= st.tabs(["2024 SWE ", "Historical SWE (2007-2023)", "Note"])
 
 with tab1:
     selectbox = st.selectbox(
@@ -26,7 +26,7 @@ with tab1:
     'Snow Depth (in)')
     )
      
-    df = pd.read_csv("data.csv")
+    df = pd.read_excel("data.xlsx")
 
     if selectbox ==  "Snow Water Equivalent (percent)":
         fig = go.Figure()
@@ -59,11 +59,12 @@ with tab1:
                     yanchor="top",
                     y=0.35,
                     xanchor="left",
-                    x=0.85
-                ))
+                    x=0.85),
+                    xaxis_range=['2023-11-01','2024-06-01'],
+                    yaxis_range=[0,250])
         fig.update_xaxes( showgrid=True)
-        fig.update_layout(xaxis_range=['2023-11-01','2024-06-01'])
-        fig.update_layout(yaxis_range=[0,210])
+        #fig.update_layout(xaxis_range=['2023-11-01','2024-06-01'])
+        #fig.update_layout(yaxis_range=[0,210])
         #note ='High snowpack percentages are common during the start and end of the snow season when median SWE values are small. https://www.nrcs.usda.gov/conservation-basics/conservation-by-state/montana/montana-snow-survey/frequently-asked-snow-survey-questions-montana'
         #fig.add_annotation(
             #showarrow=False,
@@ -78,7 +79,6 @@ with tab1:
         st.plotly_chart(fig,use_container_width=True, height = 200)
         st.write('High snowpack percentages are common during the start and end of the snow season when median SWE values are small. \n https://www.nrcs.usda.gov/conservation-basics/conservation-by-state/montana/montana-snow-survey/frequently-asked-snow-survey-questions-montana')
     else:
-        df = pd.read_csv("data.csv")
         fig = go.Figure()
         fig.add_trace(go.Scatter(x = df['Date'], y = df['Rio Chama Basin_Snow Depth'],mode='lines+markers',
                          line=dict(color='deeppink', width=1),
@@ -131,7 +131,7 @@ with tab2:
         'Snow Depth (in)'),
         key="y")
 
-    df = pd.read_csv("data.csv") 
+    df = pd.read_excel("data.xlsx") 
     if add_selectbox1 == "Rio Chama Basin" and add_selectbox2 == "Snow Water Equivalent (percent)":
         fig = go.Figure()
         fig.add_trace(go.Scatter(x = df['Date'], y = df['Rio Chama Basin_Percent of Median'],mode='lines+markers',
@@ -302,3 +302,9 @@ with tab2:
     #fig.update_layout(xaxis_range=['2007-12-01','2023-04-05'])
     #fig.update_layout(yaxis_range=[0,25])
         st.plotly_chart(fig,use_container_width=True, height = 200)
+
+with tab3:
+    st.write("Snowpack Mater aims to provide discrate and accesiable SWE data to local water managers. ")
+    st.write("The delineation of reported basins include Updated subbasins include Rio Chama Basin, Upper Rio Grande Basin, Sangre Decristo Basin,  Jemez River Basin,  San Juan River Basin. ")
+    st.write("Upper Rio Grande Basin consists of Rio Grande Headwaters, Saguache, and Conejos basins of HUC 8 . \n Sangre Decristo Basin consists of San Luis, Alamosa-Trinchem, and Upper Rio Grande basins of HUC 8. \n San Juan River Basin consists of Animas, Piedra, and Upper San Juan basins of HUC 8.  ")
+    st.image("UplandBasins_SnowpackMaster.jpg")
