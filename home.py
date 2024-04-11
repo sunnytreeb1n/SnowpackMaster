@@ -17,7 +17,7 @@ st.title("Snowpack Master")
 
 #st.image("basins.jpg", caption="Location of Basins", width=700, use_column_width=None, clamp=False, channels="RGB", output_format="auto")
  
-tab1, tab2 , tab3= st.tabs(["2024 SWE ", "Historical SWE (2007-2023)", "Note"])
+tab1, tab2 , tab3= st.tabs(["2024 SWE ", "Historical SWE (2007-2023)", "Introduction"])
 
 with tab1:
     selectbox = st.selectbox(
