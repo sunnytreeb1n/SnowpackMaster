@@ -6,7 +6,7 @@ from PIL import Image
 
 im = Image.open("logo.jpg")
 st.set_page_config(
-    page_title="Rio Grande Bureau, NMISC",
+    page_title="Rio Grande Bureau",
     page_icon=im,
     layout="wide",
 )
@@ -30,7 +30,7 @@ with tab1:
 
     if selectbox ==  "Snow Water Equivalent (percent)":
         fig = go.Figure()
-        fig.add_trace(go.Scatter(x = df['Date'], y = df['Rio Chama Basin_Percent of Median'],mode='lines+markers',
+        fig.add_trace(go.Scatter(x = df['Date'], y = df['Rio Chama Basin_Percent of Median'], mode='lines+markers',
                          line=dict(color='deeppink', width=1),
                          marker=dict(color='deeppink', size=8),
                           name='Rio Chama Basin'))
@@ -38,15 +38,15 @@ with tab1:
                          line=dict(color='blue', width=1),
                          marker=dict(symbol = 'x',color='blue', size=8),
                           name='Upper Rio Grande Basin'))
-        fig.add_trace(go.Scatter(x = df['Date'], y = df['Sangre Deristo Basin_Percent of Median'],mode='lines+markers',
+        fig.add_trace(go.Scatter(x = df['Date'], y = df['SangreDeCristoBasin_PercentofMedian'], mode='lines+markers',
                          line=dict(color='black', width=1),
                          marker=dict(symbol = "triangle-up",color='black', size=8),
-                          name='Sangre De Cristo Basin'))
-        fig.add_trace(go.Scatter(x = df['Date'], y = df['Jemez River Basin_Percent of Median'],mode='lines+markers',
+                         name='Sangre De Cristo Basin'))
+        fig.add_trace(go.Scatter(x = df['Date'], y = df['Jemez River Basin_Percent of Median'], mode='lines+markers',
                          line=dict(color='green', width=1),
                          marker=dict(symbol = 'star',color='green', size=8),
                           name='Jemez River Basin'))
-        fig.add_trace(go.Scatter(x = df['Date'], y = df['San Juan River Basin_Percent of Median'],mode='lines+markers',
+        fig.add_trace(go.Scatter(x = df['Date'], y = df['SanJuanRiverBasin_PercentofMedian'], mode='lines+markers',
                          line=dict(color='gold', width=1),
                          marker=dict(symbol = 'square',color='gold', size=8),
                           name='San Juan River Basin'))
@@ -80,40 +80,41 @@ with tab1:
         st.write('High snowpack percentages are common during the start and end of the snow season when median SWE values are small. \n https://www.nrcs.usda.gov/conservation-basics/conservation-by-state/montana/montana-snow-survey/frequently-asked-snow-survey-questions-montana')
     else:
         fig = go.Figure()
-        fig.add_trace(go.Scatter(x = df['Date'], y = df['Rio Chama Basin_Snow Depth'],mode='lines+markers',
+        fig.add_trace(go.Scatter(x = df['Date'], y = df['Rio Chama Basin_Snow Depth'], mode='lines+markers',
                          line=dict(color='deeppink', width=1),
                          marker=dict(color='deeppink', size=8),
                           name='Rio Chama Basin'))
-        fig.add_trace(go.Scatter(x = df['Date'], y = df[' Upper Rio Grande Basin_Snow Depth'], mode='lines+markers',
+        fig.add_trace(go.Scatter(x = df['Date'], y = df['UpperRioGrandeBasin_SnowDepth'], mode='lines+markers',
                          line=dict(color='blue', width=1),
                          marker=dict(symbol = 'x',color='blue', size=8),
                           name='Upper Rio Grande Basin'))
-        fig.add_trace(go.Scatter(x = df['Date'], y = df['  Sangre Decristo Basin_Snow Depth'],mode='lines+markers',
+        fig.add_trace(go.Scatter(x = df['Date'], y = df['SangreDeCristo Basin_Snow Depth'], mode='lines+markers',
                          line=dict(color='black', width=1),
                          marker=dict(symbol = "triangle-up",color='black', size=8),
                               name='Sangre De Cristo Basin'))
-        fig.add_trace(go.Scatter(x = df['Date'], y = df[' Jemez River Basin_Snow Depth'],mode='lines+markers',
+        fig.add_trace(go.Scatter(x = df['Date'], y = df['JemezRiverBasin_SnowDepth'], mode='lines+markers',
                          line=dict(color='green', width=1),
                          marker=dict(symbol = 'star',color='green', size=8),
-                          name='Jemez River Basin'))
-        fig.add_trace(go.Scatter(x = df['Date'], y = df[' San Juan River Basin_Snow Depth'],mode='lines+markers',
-                         line=dict(color='gold', width=1),
-                         marker=dict(symbol = 'square',color='gold', size=8),
-                          name='San Juan River Basin'))
+                         name='Jemez River Basin'))
+        fig.add_trace(go.Scatter(x = df['Date'], y = df['San Juan River Basin_Snow Depth'], mode='lines+markers',
+                        line=dict(color='gold', width=1),
+                        marker=dict(symbol = 'square',color='gold', size=8),
+                        name='San Juan River Basin'))
         fig.update_layout(#title='2024 SWE Depth (in)', title_x=0.5,
                    plot_bgcolor='rgb(250, 250,250)',
                    margin=dict(l=20, r=20, t=40, b=20),
                    showlegend=True,
                    legend=dict(
                     yanchor="top",
-                    y=0.35,
+                    y=0.3,
                     xanchor="left",
-                    x=0.85
+                    x=0.75
                 ))
         fig.update_xaxes(minor=dict(ticks="inside", showgrid=True))
         fig.update_layout(xaxis_range=['2023-11-01','2024-06-01'])
         fig.update_layout(yaxis_range=[0,20])
         st.plotly_chart(fig,use_container_width=True, height = 200)
+
 
 
 with tab2:  
@@ -123,7 +124,7 @@ with tab2:
         'Upper Rio Grande Basin', 
         'Sangre De Cristo Basin', 
         'Jemez River Basin', 
-        'San Juan River Basin')
+        'San Juan Basin')
         ,key="x")
     add_selectbox2 = st.selectbox(
         'Select a Element',
@@ -134,7 +135,7 @@ with tab2:
     df = pd.read_excel("data.xlsx") 
     if add_selectbox1 == "Rio Chama Basin" and add_selectbox2 == "Snow Water Equivalent (percent)":
         fig = go.Figure()
-        fig.add_trace(go.Scatter(x = df['Date'], y = df['Rio Chama Basin_Percent of Median'],mode='lines+markers',
+        fig.add_trace(go.Scatter(x = df['Date'], y = df['Rio Chama Basin_Percent of Median'], mode='lines+markers',
                          line=dict(color='deeppink', width=1),
                          marker=dict(color='deeppink', size=3),
                           name='Rio Chama Basin'))
@@ -168,10 +169,10 @@ with tab2:
         st.plotly_chart(fig,use_container_width=True, height = 200)
     elif add_selectbox1 == "Sangre De Cristo Basin" and add_selectbox2 == "Snow Water Equivalent (percent)":
         fig = go.Figure()
-        fig.add_trace(go.Scatter(x = df['Date'], y = df['Sangre Decristo Basin_Percent of Median'],mode='lines+markers',
+        fig.add_trace(go.Scatter(x = df['Date'], y = df['SangreDeCristoBasin_PercentofMedian'], mode='lines+markers',
                          line=dict(color='black', width=1),
                          marker=dict(symbol = "triangle-up",color='black', size=3),
-                          name='Sangre De Cristo Basin'))
+                          name='Sangre Decristo Basin'))
         fig.update_layout(#title='2024 SWE Depth (in)', title_x=0.5,
                    plot_bgcolor='rgb(250, 250,250)',
                    margin=dict(l=10, r=10, t=50, b=50),
@@ -185,7 +186,7 @@ with tab2:
         st.plotly_chart(fig,use_container_width=True, height = 200)
     elif add_selectbox1 == "Jemez River Basin" and add_selectbox2 == "Snow Water Equivalent (percent)":
         fig = go.Figure()
-        fig.add_trace(go.Scatter(x = df['Date'], y = df['Jemez River Basin_Percent of Median'],mode='lines+markers',
+        fig.add_trace(go.Scatter(x = df['Date'], y = df['Jemez River Basin_Percent of Median'], mode='lines+markers',
                          line=dict(color='green', width=1),
                          marker=dict(symbol = 'star',color='green', size=3),
                           name='Jemez River Basin'))
@@ -197,12 +198,10 @@ with tab2:
                    yaxis_range=[0,250]
                    )
         fig.update_xaxes( showgrid=True)
-    #fig.update_layout(xaxis_range=['2007-12-01','2023-04-05'])
-    #fig.update_layout(yaxis_range=[0,1050])
         st.plotly_chart(fig,use_container_width=True, height = 200)
     elif add_selectbox1 == "San Juan River Basin" and add_selectbox2 == "Snow Water Equivalent (percent)":
         fig = go.Figure()
-        fig.add_trace(go.Scatter(x = df['Date'], y = df['San Juan River Basin_Percent of Median'],mode='lines+markers',
+        fig.add_trace(go.Scatter(x = df['Date'], y = df['SanJuanRiverBasin_PercentofMedian'], mode='lines+markers',
                          line=dict(color='gold', width=1),
                          marker=dict(symbol = 'square',color='gold', size=3),
                           name='San Juan River Basin'))
@@ -213,13 +212,11 @@ with tab2:
                    xaxis_range=['2007-12-01','2023-04-05'],
                    yaxis_range=[0,220]
                    )
-        fig.update_xaxes( showgrid=True)
-    #fig.update_layout(xaxis_range=['2007-12-01','2023-04-05'])
-    #fig.update_layout(yaxis_range=[0,1050])
+        fig.update_xaxes(showgrid=True)
         st.plotly_chart(fig,use_container_width=True, height = 200)
     elif add_selectbox1 == "Rio Chama Basin" and add_selectbox2 == "Snow Depth (in)":
         fig = go.Figure()
-        fig.add_trace(go.Scatter(x = df['Date'], y = df['Rio Chama Basin_Snow Depth'],mode='lines+markers',
+        fig.add_trace(go.Scatter(x = df['Date'], y = df['Rio Chama Basin_Snow Depth'], mode='lines+markers',
                          line=dict(color='deeppink', width=1),
                          marker=dict(color='deeppink', size=3),
                           name='Rio Chama Basin'))
@@ -236,7 +233,7 @@ with tab2:
         st.plotly_chart(fig,use_container_width=True, height = 200)
     elif add_selectbox1 == "Upper Rio Grande Basin" and add_selectbox2 == "Snow Depth (in)":
         fig = go.Figure()
-        fig.add_trace(go.Scatter(x = df['Date'], y = df[' Upper Rio Grande Basin_Snow Depth'], mode='lines+markers',
+        fig.add_trace(go.Scatter(x = df['Date'], y = df['UpperRioGrandeBasin_SnowDepth'], mode='lines+markers',
                          line=dict(color='blue', width=1),
                          marker=dict(symbol = 'x',color='blue', size=3),
                           name='Upper Rio Grande Basin'))
@@ -253,7 +250,7 @@ with tab2:
         st.plotly_chart(fig,use_container_width=True, height = 200)
     elif add_selectbox1 == "Sangre De Cristo Basin" and add_selectbox2 == "Snow Depth (in)":
         fig = go.Figure()
-        fig.add_trace(go.Scatter(x = df['Date'], y = df['  Sangre Decristo Basin_Snow Depth'],mode='lines+markers',
+        fig.add_trace(go.Scatter(x = df['Date'], y = df['SangreDeCristo Basin_Snow Depth'], mode='lines+markers',
                          line=dict(color='black', width=1),
                          marker=dict(symbol = "triangle-up",color='black', size=3),
                           name='Sangre De Cristo Basin'))
@@ -270,7 +267,7 @@ with tab2:
         st.plotly_chart(fig,use_container_width=True, height = 200)
     elif add_selectbox1 == "Jemez River Basin" and add_selectbox2 == "Snow Depth (in)":
         fig = go.Figure()
-        fig.add_trace(go.Scatter(x = df['Date'], y = df[' Jemez River Basin_Snow Depth'],mode='lines+markers',
+        fig.add_trace(go.Scatter(x = df['Date'], y = df['JemezRiverBasin_SnowDepth'], mode='lines+markers',
                          line=dict(color='green', width=1),
                          marker=dict(symbol = 'star',color='green', size=3),
                           name='Jemez River Basin'))
@@ -282,12 +279,10 @@ with tab2:
                    yaxis_range=[0,13]
                    )
         fig.update_xaxes( showgrid=True)
-    #fig.update_layout(xaxis_range=['2007-12-01','2023-04-05'])
-    #fig.update_layout(yaxis_range=[0,25])
         st.plotly_chart(fig,use_container_width=True, height = 200)
     elif add_selectbox1 == "San Juan River Basin" and add_selectbox2 == "Snow Depth (in)": 
         fig = go.Figure()
-        fig.add_trace(go.Scatter(x = df['Date'], y = df[' San Juan River Basin_Snow Depth'],mode='lines+markers',
+        fig.add_trace(go.Scatter(x = df['Date'], y = df['San Juan River Basin_Snow Depth'], mode='lines+markers',
                          line=dict(color='gold', width=1),
                          marker=dict(symbol = 'square',color='gold', size=3),
                           name='San Juan River Basin'))
@@ -299,12 +294,13 @@ with tab2:
                    yaxis_range=[0,38]
                    )
         fig.update_xaxes(showgrid=True)
-    #fig.update_layout(xaxis_range=['2007-12-01','2023-04-05'])
-    #fig.update_layout(yaxis_range=[0,25])
         st.plotly_chart(fig,use_container_width=True, height = 200)
 
 with tab3:
-    st.write("Snowpack Mater intends to provide local water management with discrete and accessible SWE data. ")
-    st.write("Updated subbasins include the Rio Chama Basin, Upper Rio Grande Basin, Sangre Decristo Basin, Jemez River Basin, and San Juan River Basin.")
-    st.write("The delineation of basins is not always consistent with USGS HUC8. The Upper Rio Grande Basin includes the Rio Grande Headwaters, Saguache, and Conejos basins. The Sangre Decristo Basin includes the San Luis, Alamosa-Trinchem, and Upper Rio Grande basins. The San Juan River Basin includes the Animas, Piedra, and Upper San Juan basins.  ")
-    st.image("UplandBasins_SnowpackMaster.jpg", caption="Location of Basins", width=700, use_column_width=None, clamp=False, channels="RGB", output_format="auto")
+    col1, col2 = st.columns([1,1.5])
+    with col1:
+        st.write("Snowpack Mater intends to provide local water management with discrete SWE data. ")
+        st.write("Updated subbasins include the Rio Chama Basin, Upper Rio Grande Basin, Sangre De Cristo Basin, Jemez River Basin, and San Juan River Basin.")
+        st.write("The delineation of basins is not always consistent with USGS HUC8. The Upper Rio Grande Basin includes the Rio Grande Headwaters, Saguache, and Conejos basins. The Sangre De Cristo Basin includes the San Luis, Alamosa-Trinchem, and Upper Rio Grande basins. The San Juan River Basin includes the Animas, Piedra, and Upper San Juan basins.  ")
+    with col2:
+        st.image("UplandBasins_SnowpackMaster.jpg", caption="Location of Basins", use_column_width=True, clamp=True, channels="RGB", output_format="auto")
