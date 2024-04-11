@@ -307,4 +307,4 @@ with tab3:
     st.write("Snowpack Mater intends to provide local water management with discrete and accessible SWE data. ")
     st.write("Updated subbasins include the Rio Chama Basin, Upper Rio Grande Basin, Sangre Decristo Basin, Jemez River Basin, and San Juan River Basin.")
     st.write("The delineation of basins is not always consistent with USGS HUC8. The Upper Rio Grande Basin includes the Rio Grande Headwaters, Saguache, and Conejos basins. The Sangre Decristo Basin includes the San Luis, Alamosa-Trinchem, and Upper Rio Grande basins. The San Juan River Basin includes the Animas, Piedra, and Upper San Juan basins.  ")
-    st.image("UplandBasins_SnowpackMaster.jpg")
+    st.image("UplandBasins_SnowpackMaster.jpg", caption="Location of Basins", width=700, use_column_width=None, clamp=False, channels="RGB", output_format="auto")
