@@ -38,10 +38,10 @@ with tab1:
                          line=dict(color='blue', width=1),
                          marker=dict(symbol = 'x',color='blue', size=8),
                           name='Upper Rio Grande Basin'))
-        fig.add_trace(go.Scatter(x = df['Date'], y = df['Sangre Decristo Basin_Percent of Median'],mode='lines+markers',
+        fig.add_trace(go.Scatter(x = df['Date'], y = df['Sangre Deristo Basin_Percent of Median'],mode='lines+markers',
                          line=dict(color='black', width=1),
                          marker=dict(symbol = "triangle-up",color='black', size=8),
-                          name='Sangre Decristo Basin'))
+                          name='Sangre De Cristo Basin'))
         fig.add_trace(go.Scatter(x = df['Date'], y = df['Jemez River Basin_Percent of Median'],mode='lines+markers',
                          line=dict(color='green', width=1),
                          marker=dict(symbol = 'star',color='green', size=8),
@@ -91,7 +91,7 @@ with tab1:
         fig.add_trace(go.Scatter(x = df['Date'], y = df['  Sangre Decristo Basin_Snow Depth'],mode='lines+markers',
                          line=dict(color='black', width=1),
                          marker=dict(symbol = "triangle-up",color='black', size=8),
-                              name='Sangre Decristo Basin'))
+                              name='Sangre De Cristo Basin'))
         fig.add_trace(go.Scatter(x = df['Date'], y = df[' Jemez River Basin_Snow Depth'],mode='lines+markers',
                          line=dict(color='green', width=1),
                          marker=dict(symbol = 'star',color='green', size=8),
@@ -121,7 +121,7 @@ with tab2:
         'Select a Basin',
         ('Rio Chama Basin', 
         'Upper Rio Grande Basin', 
-        'Sangre Decristo Basin', 
+        'Sangre De Cristo Basin', 
         'Jemez River Basin', 
         'San Juan River Basin')
         ,key="x")
@@ -166,12 +166,12 @@ with tab2:
     #fig.update_layout(xaxis_range=['2007-12-01','2023-04-05'])
     #fig.update_layout(yaxis_range=[0,1050])
         st.plotly_chart(fig,use_container_width=True, height = 200)
-    elif add_selectbox1 == "Sangre Decristo Basin" and add_selectbox2 == "Snow Water Equivalent (percent)":
+    elif add_selectbox1 == "Sangre De Cristo Basin" and add_selectbox2 == "Snow Water Equivalent (percent)":
         fig = go.Figure()
         fig.add_trace(go.Scatter(x = df['Date'], y = df['Sangre Decristo Basin_Percent of Median'],mode='lines+markers',
                          line=dict(color='black', width=1),
                          marker=dict(symbol = "triangle-up",color='black', size=3),
-                          name='Sangre Decristo Basin'))
+                          name='Sangre De Cristo Basin'))
         fig.update_layout(#title='2024 SWE Depth (in)', title_x=0.5,
                    plot_bgcolor='rgb(250, 250,250)',
                    margin=dict(l=10, r=10, t=50, b=50),
@@ -251,12 +251,12 @@ with tab2:
     #fig.update_layout(xaxis_range=['2007-12-01','2023-04-05'])
     #fig.update_layout(yaxis_range=[0,25])
         st.plotly_chart(fig,use_container_width=True, height = 200)
-    elif add_selectbox1 == "Sangre Decristo Basin" and add_selectbox2 == "Snow Depth (in)":
+    elif add_selectbox1 == "Sangre De Cristo Basin" and add_selectbox2 == "Snow Depth (in)":
         fig = go.Figure()
         fig.add_trace(go.Scatter(x = df['Date'], y = df['  Sangre Decristo Basin_Snow Depth'],mode='lines+markers',
                          line=dict(color='black', width=1),
                          marker=dict(symbol = "triangle-up",color='black', size=3),
-                          name='Sangre Decristo Basin'))
+                          name='Sangre De Cristo Basin'))
         fig.update_layout(#title='2024 SWE Depth (in)', title_x=0.5,
                    plot_bgcolor='rgb(250, 250,250)',
                    margin=dict(l=10, r=10, t=50, b=50),
