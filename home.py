@@ -106,9 +106,9 @@ with tab1:
                    showlegend=True,
                    legend=dict(
                     yanchor="top",
-                    y=0.9,
+                    y=0.95,
                     xanchor="left",
-                    x=0.1
+                    x=0.05
                 ))
         fig.update_xaxes(minor=dict(ticks="inside", showgrid=True))
         fig.update_layout(xaxis_range=['2023-11-01','2024-06-01'])
