@@ -106,7 +106,7 @@ with tab1:
                    showlegend=True,
                    legend=dict(
                     yanchor="top",
-                    y=0.8,
+                    y=0.9,
                     xanchor="left",
                     x=0.1
                 ))
